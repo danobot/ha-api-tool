@@ -1,0 +1,19 @@
+<!-- <span ng-bind="key"></span>
+<span ng-bind="value"></span> -->
+
+
+<div ng-if="verb==='text'" editable-text="value[key]" buttons="no" e-name="key">{{value[key]}}</div>
+<div ng-if="verb==='number'" editable-number="value[key]" buttons="no" e-name="key">{{value[key]}}</div>
+<div ng-if="verb==='boolean'" editable-checkbox="value[key]" e-title="Enabled" buttons="no" e-name="key">{{value[key]}}</div>
+<div ng-if="verb==='array'">
+  <div ng-repeat="item in value[key]">
+    <div editable-text="item" buttons="no" e-name="key">{{item}}</div>
+  </div>
+  <button class="btn btn-link" ng-click="addItem()">Add</button>
+</div>
+<div ng-if="verb==='date'" editable-datetime-local="value[key]" buttons="no" e-name="key">{{value[key]| date: "yyyy-MM-ddTHH:mm:ss"}}</div>
+<div ng-if="verb==='number'" editable-number="value[key]" buttons="no" e-name="key">{{value[key]}}</div>
+
+<!-- <span ng-if="verb==='object'" ng-model="value[key]"></span> -->
+<div ng-if="verb==='object'" editable-textarea="value[key]" rows=7 col=15 buttons="no" e-name="key">
+<pre>{{value[key] | json}}</pre></div>

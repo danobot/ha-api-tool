@@ -1,0 +1,8 @@
+ha-api-tool:
+  container_name: 'ha-api-tool'
+  # build: .
+  image: danobot/ha-api-tool:latest
+  ports:
+    - "8081:80"
+  environment:
+    NODE_ENV: production

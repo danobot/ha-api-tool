@@ -1,0 +1,84 @@
+
+<p class="float-right align-bottom">Connected: <span id='status' class="label">Connecting…</span></p>
+<h1>Entities</h1>
+
+<div class="row">
+
+  <div class="col-md-12">
+
+
+    <form class="form-row" name="filters" data-editable-form>
+
+        <div class="form-group col-sm-2">
+          <label for="filter" >Filter</label>
+          <input type="text" class="form-control form-control-sm" id="filter" ng-model="filter" placeholder="Filter"/>
+
+        </div>
+
+        <div class="form-group col-sm-2">
+          <label for="domains">Domains</label>
+          <tags-input class="" ng-model="domainFilters" add-on-paste="false" id="domains">
+            <auto-complete source="domains"></auto-complete>
+          </tags-input>
+         </div>
+    </form>
+
+  </div>
+
+
+</div>
+
+<div class="row limit-height" >
+  <div class="col-sm-6 scroll">
+
+
+    <table class="table table-collapsed" >
+      <thead>
+        <th>Domain</th>
+        <th>Entity</th>
+        <th>State</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in entities | filter:myFilterBy | filter:{id: filter}">
+        <td class="color" ng-class="item.domain">{{item.domain}}</td>
+        <td><a href="" ng-click="select(item, $index)">{{item.id}}</a></td>
+        <td>{{item.state}}</td>
+      </tr>
+    </tbody>
+
+    </table>
+  </div>
+<div class="col-sm-6 scroll text-muted text-center" ng-hide="selection">
+  <div class="align-middle">
+    <p>Select an Entity from the table to see detailed information about it here.</p>
+    <p><b>Creating a new entity:</b> Select an existing entity, and edit the entity_id. This will create a new entity with the given state in Home Assistant.</p>
+  </div>
+
+</div>
+
+  <div class="col-sm-6 scroll" ng-show="selection">
+    <h5 class="details color sticky-top" ng-class="selection.domain">{{selection.id}} <small>{{selection.domain}}</small></h5>
+    <div class="detail-edit">
+      <a href="" class="btn btn-primary btn-xs" ng-show="!detailForm.$visible" ng-click="detailForm.$show()" onbeforesave="updateState(json)">edit</a>
+      <span class="badge badge-warning" ng-show="!detailForm.$pristine">Unsaved changes!</span>
+    </div>
+    <form editable-form name="detailForm" oncancel="cancel" onaftersave="submit(selection)" id="detailForm">
+
+      <detail-section json="selection.entity" name="Properties"></detail-section>
+      <detail-section json="selection.entity.attributes" name="Attributes"></detail-section>
+      <div class="btn-form detail-buttons" ng-show="detailForm.$visible">
+        <button type="button" ng-disabled="detailForm.$waiting" ng-click="detailForm.$cancel()" class="btn btn-default">cancel</button>
+        <button type="submit" ng-disabled="detailForm.$waiting" class="btn btn-primary">save</button>
+      </div>
+    </form>
+    <p class="detail-header" data-toggle="collapse" data-target="#collapse_json_section" aria-expanded="false" aria-controls="collapse_json_section">JSON Payload</p>
+    <div class="collapse show" id="collapse_json_section">
+      <p>Unmodified JSON payload as received by server</p>
+      <pre>{{selection.entity | json}}</pre>
+    </div>
+
+
+  </div>
+
+
+</div>

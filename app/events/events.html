@@ -1,0 +1,46 @@
+<p class="float-right align-bottom">Connected: <span id='status' class="label">Connecting…</span></p>
+
+<h1>Events</h1>
+
+<div class="row limit-height" >
+  <div class="col-sm-6 scroll">
+
+
+    <table class="table table-collapsed" >
+      <thead>
+        <th>Event Type</th>
+        <th>Entity</th>
+        <th>Time Fired</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in events">
+        <td class="color" ng-class="item.domain">{{item.event_type}}</td>
+        <td><a href="" ng-click="select(item, $index)">{{item.data.entity_id}}</a></td>
+        <td>{{item.time_fired | date}}</td>
+      </tr>
+    </tbody>
+
+    </table>
+  </div>
+  <div class="col-sm-6 scroll text-muted text-center bg-light" ng-hide="selection">
+    <div class="align-middle">
+      <p>This is a live view of all events fired by HA's event hub.</p>
+      <p>Depending on how busy your Home Assistant setup is, it may take some time for the first event to appear.</p>
+      <p>Select an Event from the table to see detailed information about it here.</p>
+      <p><b>Note:</b> Timer events do not show up here.</p>
+    </div>
+
+  </div>
+  <div class="col-sm-6 scroll" ng-show="selection">
+    <h5 class="details color sticky-top" ng-class="key">{{selection.data.entity_id}} <small>{{selection.event_type}}</small></h5>
+    <detail-section json="selection" name="Properties"></detail-section>
+    <detail-section json="selection.data" name="Data"></detail-section>
+
+    <p class="detail-header" data-toggle="collapse" data-target="#collapse_json_section" aria-expanded="false" aria-controls="collapse_json_section">JSON Payload</p>
+    <div class="collapse show" id="collapse_json_section">
+      <p>Unmodified JSON payload as received by server</p>
+      <pre>{{selection | json}}</pre>
+    </div>
+  </div>
+</div>
+<footer status="'Event Count: '+eventCount"></footer>

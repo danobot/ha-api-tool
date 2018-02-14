@@ -1,0 +1,18 @@
+<h1>Welcome to the Home Assistant API Tool</h1>
+<p class="lead">Clever name suggestions welcome.</p>
+
+<div ng-hide="hasCredentials">
+  <p>Start by entering your Home Assistant server URL and your api_password in the top right fields. Then hit connect to establish a connection to your home automation hub.</p>
+</div>
+
+<div ng-show="hasCredentials">
+  <p>It looks like it's not the first time you visit us, as there are login credentials stored in your Browser.</p>
+  <p>This is ok. :) You may still wish to <a href="" ng-click="remove()">remove them</a>.</p>
+</div>
+
+<p>I hope you are enjoying this app. Please consider contributing to it's development.</p>
+
+<a class="btn" href="https://github.com/danobot/ha-api-tool" target="_blank">Github Repository</a>
+<a class="btn" href="https://danielha.tk/2018/02/13/hass-api-tool.html" target="_blank">Blog Mention</a>
+
+<a class="btn btn-info" href="https://github.com/danobot/ha-api-tool/issues/new" target="_blank">Submit an Issue</a>

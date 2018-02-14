@@ -1,0 +1,43 @@
+<p class="float-right align-bottom">Connected: <span id='status' class="label">Connecting…</span></p>
+
+<h1>Services</h1>
+
+<div class="row limit-height" >
+  <div class="col-sm-6 scroll">
+
+
+    <table class="table table-collapsed" >
+      <thead>
+        <th>Domain</th>
+        <th>Services</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="(key, value) in (services)">
+        <td class="color" ng-class="item.domain">{{key}}</td>
+        <td><ul class="services">
+          <li ng-repeat="(key2, value2) in value"><a href="" ng-click="select(key, key2, $index)">{{key2}}</a></li>
+</ul>
+          <!-- <a href="" ng-click="select(key, $index)">{{value | json}}</a></td> -->
+      </tr>
+    </tbody>
+
+    </table>
+  </div>
+  <div class="col-sm-6 scroll text-muted text-center" ng-hide="selection">
+    <div class="align-middle">
+      <p>Select an Event from the table to see detailed information about it here.</p>
+    </div>
+
+  </div>
+  <div class="col-sm-6 scroll" ng-show="selection">
+    <h5 class="details color sticky-top" ng-class="key">{{subkey}} <small>{{key}}</small></h5>
+    <detail-section json="services[key][subkey]" name="Properties"></detail-section>
+    <!-- <detail-section json="selection.data" name="Data"></detail-section> -->
+
+  <p class="detail-header" data-toggle="collapse" data-target="#collapse_json_section" aria-expanded="false" aria-controls="collapse_json_section">JSON Payload</p>
+  <div class="collapse show" id="collapse_json_section">
+    <p>Unmodified JSON payload as received by server</p>
+    <pre>{{services[key] | json}}</pre>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HA Dev Tool</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css"> -->
+  <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css"> -->
+  <!-- <link rel="stylesheet" href="assets/bootstrap.css"> -->
+  <link href="assets/vendor/css/ng-tags-input.min.css" rel="stylesheet" media="screen">
+
+  <link href="assets/vendor/css/ng-tags-input.bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="assets/bootstrap-custom.css">
+
+  <link rel="stylesheet" href="assets/custom.css">
+
+
+
+<link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+
+</head>
+<body>
+  <nav class="navbar fixed navbar-expand-lg navbar-dark bg-hass">
+    <a class="navbar-brand bold" href="#">HA Dev Tool</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/entities">Entities</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#!/events">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/services">Services</a>
+        </li>
+      </ul>
+      <cred-form></cred-form>
+
+    </div>
+  </nav>
+  <div class="container-fluid">
+
+
+
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div ng-view></div>
+  </div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+  <!-- <script src="bower_components/angular/angular.js"></script> -->
+  <!-- <script src="bower_components/angular-route/angular-route.js"></script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.min.js"></script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.1/ui-bootstrap-tpls.min.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.8.1/js/xeditable.min.js"></script>
+  <!-- <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script> -->
+  <script src="assets/js/haws.umd.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+
+  <script src="app.js"></script>
+  <script src="entities/entities.js"></script>
+  <script src="home/home.js"></script>
+  <script src="entities/jsonInput.js"></script>
+  <script src="events/events.js"></script>
+  <script src="ha-services/services.js"></script>
+  <script src="services/hassService.js"></script>
+  <script src="services/credService.js"></script>
+  <script src="directives/ptable/ptable.js"></script>
+  <script src="directives/footer/footer.js"></script>
+  <script src="directives/credentialsForm/credForm.js"></script>
+  <script src="directives/detail-section/detailSection.js"></script>
+  <!-- <script src="assets/js/bootstrap.min.js"></script>-->
+</body>
+</html>
