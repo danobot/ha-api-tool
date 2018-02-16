@@ -6,8 +6,9 @@ app.directive('credForm', [function() {
     },
 
     controller: function($scope, CredentialService) {
+      $scope.authToken = "";
+      $scope.api_url = "";
       callback();
-
       function callback() {
         $scope.authToken = CredentialService.getAuthToken();
         $scope.api_url = CredentialService.getApiUrl();
@@ -16,8 +17,8 @@ app.directive('credForm', [function() {
       CredentialService.subscribe(callback);
       $scope.save = function() {
         console.log("Saving Credentials");
-        CredentialService.saveApiUrl($scope.api_url);
-        CredentialService.saveAuthToken($scope.authToken);
+        CredentialService.saveCredentials($scope.api_url, $scope.authToken);
+
       };
 
 

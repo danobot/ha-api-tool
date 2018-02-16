@@ -1,8 +1,11 @@
 app.service('CredentialService', ['$localStorage', function($localStorage) {
-  authToken = "";
-  api_url = "";
-  $storage = $localStorage;
 
+  $storage = $localStorage;
+  this.saveAuthToken = function(tokent) {
+    $storage.api_password = tokent;
+
+    notify();
+  };
   // Observers
   var observerCallbacks = [];
 
@@ -18,46 +21,41 @@ app.service('CredentialService', ['$localStorage', function($localStorage) {
       callback();
     });
   };
-  console.log($storage.cred);
-  if ($storage.api_url || $storage.authToken) {
-    console.log("Setting credentials from Local Storage", $storage.api_url, $storage.authToken);
-    authToken = $storage.authToken;
-    api_url = $storage.api_url;
+  if ($storage.api_url || $storage.api_password) {
+    console.log("Setting credentials from Local Storage", $storage.api_url, $storage.api_password);
+
     notify();
   }
-  this.saveAuthToken = function(token) {
-    $storage.authToken = token;
-    authToken = token;
-    notify();
-  };
+
 
   this.hasCredentials = function() {
-    return $storage.api_url && $storage.authToken;
-  }
+    return $storage.api_url && $storage.api_password;
+  };
 
-  this.saveApiUrl = function(url) {
+  this.saveCredentials = function(url, pw) {
+    $storage.api_password = pw;
     $storage.api_url = url;
-    api_url = url;
+
     notify();
   };
 
   this.getAuthToken = function() {
-    return authToken;
+    return $storage.api_password;
   };
 
   this.getApiUrl = function() {
-    return api_url;
+    return $storage.api_url;
   };
 
   this.getHeaders = function() {
     return {
-      authToken: authToken
+      authToken: $storage.api_password
     };
   };
 
   this.remove = function() {
     delete $storage.api_url;
-    delete $storage.authToken;
+    delete $storage.api_password;
   }
 
 
