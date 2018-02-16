@@ -42,7 +42,7 @@
       <tr ng-repeat="item in entities | filter:myFilterBy | filter:{id: filter}">
         <td class="color" ng-class="item.domain">{{item.domain}}</td>
         <td><a href="" ng-click="select(item, $index)">{{item.id}}</a></td>
-        <td>{{item.state}}</td>
+        <td>{{item.entity.state}}</td>
       </tr>
     </tbody>
 
