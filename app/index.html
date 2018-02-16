@@ -24,7 +24,7 @@
 
 </head>
 <body>
-  <nav class="navbar fixed navbar-expand-lg navbar-dark bg-hass">
+  <nav class="navbar fixed navbar-expand-lg navbar-dark bg-hass fixed-top">
     <a class="navbar-brand bold" href="#">HA Dev Tool</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -59,6 +59,10 @@
     <![endif]-->
 
     <div ng-view></div>
+  </div>
+  <div class="fixed-bottom container-fluid status-bar bg-hass text-light">
+    <a href="https://github.com/danobot/ha-api-tool" target="_blank">GitHub Repo</a> | <a href="https://github.com/danobot/ha-api-tool/issues/new" target="_blank">Report Defect</a>
+    <span class="float-right align-bottom" id="status"></span>
   </div>
 
   <!-- In production use:

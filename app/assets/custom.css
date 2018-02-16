@@ -1,4 +1,4 @@
-nav.bg-hass {
+.bg-hass {
   background-color: #03A9F4;
 }
 
@@ -42,7 +42,7 @@ padding: 0;
 }
 
 ul.services li{
-  
+
 }
 
 .scroll {
@@ -51,7 +51,7 @@ ul.services li{
 }
 
 .limit-height {
-  height:600px;
+  height:77vh;
 }
 
 table.table {
@@ -81,8 +81,13 @@ tags-input.host {
 tags-input.tags {
   padding: 0px;
 }
-
-
+.text-light a {
+  color: white;
+  text-decoration: underline;
+}
+.status-bar {
+  font-size: 70%;
+}
 
 /* Editable Form*/
 /*
