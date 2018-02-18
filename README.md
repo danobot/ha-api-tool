@@ -14,7 +14,7 @@ I wrote this tool to aid in the HA integration with third-party services via the
 
 # Access Hosted Version
 You can access a hosted version of the app by clicking the link below:
-[HA API Tool](https://ha-tool.danielha.tk)
+[HA API Tool](https://tool.danielha.tk)
 
 The hosted version runs on the latest production Docker image `danobot/ha-api-tool:latest` available on DockerHub. This image is automatically regenerated as part of the deployment pipeline.
 
