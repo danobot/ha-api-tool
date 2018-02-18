@@ -6,7 +6,7 @@ git add builds.log
 git commit -m "Appended build record to build log"
 git push
 
-cd ~/dockerfiles/master/
-docker stop ha-api-tool-prod
-docker rm ha-api-tool-prod
-docker-compose up -d ha-api-tool
+cd ~/config
+docker stop ha-tool
+docker rm ha-tool
+docker-compose up -d ha-tool
