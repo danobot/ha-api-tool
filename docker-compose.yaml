@@ -1,8 +1,23 @@
-ha-api-tool:
-  container_name: 'ha-api-tool'
-  # build: .
-  image: danobot/ha-api-tool:latest
-  ports:
-    - "8081:80"
-  environment:
-    NODE_ENV: production
+version: '3.1'
+services:
+  ha-tool:
+    image: danobot/ha-api-tool:latest
+    container_name: ha-tool
+    restart: always
+    environment:
+      - ENV=production
+    networks:
+      - public
+    expose:
+      - 80
+    labels:
+      - "traefik.backend=ha-tool"
+      - "traefik.docker.network=public"
+      - "traefik.frontend.rule=Host:tool.danielha.tk,apitool.danielha.tk"
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.default.protocol=http"
+
+networks:
+  public:
+    external: true
