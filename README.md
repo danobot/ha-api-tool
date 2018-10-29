@@ -7,9 +7,21 @@ You can connect to a HA server on your local network or to a external server.
 
 The aim for the tool is to allow you to explore the JSON payloads returned by Home Assistant's API such that you can build your own payloads to use in services such as IFTTT or Dialogflow.
 
+**Entities View**
+![Entities View](images/entities.png)
+
+**Events View**
+![Events View](images/events.png)
+
+**Services View**
+![Services View](images/services.png)
+
+
+
 In the future, you will be able to modify entity states, though there is an open issue blocking the implementation of this feature.
 
 I wrote this tool to aid in the HA integration with third-party services via the REST API. Home Asssistants built-in developer tools do not provide the visibility I was looking for and felt clunky to use. For example, having to write JSON payloads from scratch and losing all progress when navigating to a different tab.
+
 
 
 # Access Hosted Version
